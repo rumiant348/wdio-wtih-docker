@@ -6,11 +6,11 @@ class InitialPage extends Page {
         super(initialPageUrl);
     }
 
-    get proceedButton() {
+    get proceedButton(): WebdriverIO.Element {
         return $(`button=GET STARTED`);
     }
 
-    clickProceedButton() {
+    clickProceedButton(): void {
         this.proceedButton.click();
     }
 }

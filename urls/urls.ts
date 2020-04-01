@@ -1,3 +1,3 @@
-export const initialLoginPageUrl = '';
-export const initialPageUrl = '';
-export const finalLoginPageUrl = '';
+export const initialLoginPageUrl: string = '';
+export const initialPageUrl: string = '';
+export const finalLoginPageUrl: string = '';

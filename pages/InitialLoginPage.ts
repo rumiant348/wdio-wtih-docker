@@ -6,31 +6,31 @@ class InitialLoginPage extends Page {
         super(initialLoginPageUrl);
     }
 
-    get stateDropDown() {
+    get stateDropDown(): WebdriverIO.Element {
         return $('#selectProductSort');
     }
 
-    get districtDropDown() {
+    get districtDropDown(): WebdriverIO.Element {
         return $('#selectProductSort');
     }
 
-    get finishButton() {
+    get finishButton(): WebdriverIO.Element {
         return $(`button=LET'S GO!`);
     }
 
-    selectInStateDropDown(index: number) {
+    selectInStateDropDown(index: number): void {
         this.selectInDropDown('#school-state-select', index);
     }
 
-    selectInDistrictDropDown(index: number) {
+    selectInDistrictDropDown(index: number): void {
         this.selectInDropDown('#school-district-select', index);
     }
 
-    finishButtonEnabled() {
+    finishButtonEnabled(): boolean {
         return this.finishButton.isEnabled();
     }
 
-    clickFinishButton() {
+    clickFinishButton(): void {
         this.finishButton.click()
     }
 

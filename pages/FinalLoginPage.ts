@@ -6,37 +6,31 @@ class FinalLoginPage extends Page {
         super(finalLoginPageUrl);
     }
 
-    get username() {
+    get username(): WebdriverIO.Element {
         return $('#username');
     }
 
-    get password() {
+    get password(): WebdriverIO.Element {
         return $('#password');
     }
 
-    get submit() {
+    get submit(): WebdriverIO.Element {
         return $(`button=LET'S GO!`);
     }
 
-    enterUsername(username) {
+    enterUsername(username: string): void {
         let el = this.username;
         el.waitForClickable({ timeout: 3000 });
         el.setValue(username)
     }
 
-    enterPassword(password) {
+    enterPassword(password: string): void {
         let el = this.password;
         el.waitForClickable({ timeout: 3000 });
         el.setValue(password)
     }
 
-    clickLogin() {
-        this.submit.click();
-    }
-
-    loginWithCredentials(username, password) {
-        this.username.setValue(username);
-        this.password.setValue(password);
+    clickLogin(): void {
         this.submit.click();
     }
 }

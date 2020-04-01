@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Antont Rumiantsev rumiant348@yandex.ru",
   "license": "ISC",
   "devDependencies": {
     "@types/mocha": "^7.0.2",

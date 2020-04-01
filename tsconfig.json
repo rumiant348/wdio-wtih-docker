@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es2017",
+    "moduleResolution": "Node",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "paths": {
+      "*": [
+        "./*"
+      ]
+    },
+    "types": ["node", "@wdio/sync", "@wdio/mocha-framework", "chai", "./types"],
+    "sourceMap": true
+  },
+  "include": ["./**/*.ts"],
+  "exclude": [
+    "node_modules"
+  ],
+}

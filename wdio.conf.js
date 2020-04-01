@@ -7,6 +7,9 @@ exports.config = {
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
     runner: 'local',
+
+    port: 4444,
+    path: "/wd/hub",
     //
     // ==================
     // Specify Test Files
@@ -17,7 +20,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/**/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -89,7 +92,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-  //  baseUrl: 'http://localhost',
+    baseUrl: 'http://automationpractice.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -105,8 +108,17 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
-    
+    services: ['docker'],
+    dockerLogs: './logs',
+    dockerOptions: {
+        image: 'selenium/standalone-chrome-debug',
+        healthCheck: 'http://localhost:4444',
+        options: {
+            p: ['4444:4444', '5900:5900'],
+            shmSize: '2g'
+        }
+    },
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
@@ -131,7 +143,12 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
+        require: ['tsconfig-paths/register'],
+        compilers: [
+            'ts-node/register',
+            'tsconfig-paths/register'
+        ]
     },
     //
     // =====
@@ -174,8 +191,10 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        // require('ts-node/register');
+        require('ts-node').register({ files: true });
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

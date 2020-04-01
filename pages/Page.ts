@@ -25,7 +25,7 @@ export default class Page {
 
     waitForNavigation() {
         browser.waitUntil(
-            () => browser.getUrl() !== this.path,
+            () => new URL(browser.getUrl()).pathname !== this.path,
             {
                 timeout: 5000,
                 timeoutMsg: 'expected url to change after 5s'

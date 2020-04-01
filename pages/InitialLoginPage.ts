@@ -15,15 +15,15 @@ class InitialLoginPage extends Page {
     }
 
     get finishButton() {
-        return $('.top-pagination-content > form:nth-child(1) > button:nth-child(1)');
+        return $(`button=LET'S GO!`);
     }
 
     selectInStateDropDown(index: number) {
-        this.selectInDropDown('#selectProductSort', index);
+        this.selectInDropDown('#school-state-select', index);
     }
 
     selectInDistrictDropDown(index: number) {
-        this.selectInDropDown('#selectProductSort', index);
+        this.selectInDropDown('#school-district-select', index);
     }
 
     finishButtonEnabled() {

@@ -7,7 +7,7 @@ class InitialPage extends Page {
     }
 
     get proceedButton() {
-        return $('#lets-go-selector')
+        return $(`button=GET STARTED`);
     }
 
     clickProceedButton() {

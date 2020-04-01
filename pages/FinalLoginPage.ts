@@ -7,15 +7,15 @@ class FinalLoginPage extends Page {
     }
 
     get username() {
-        return $('#email');
+        return $('#username');
     }
 
     get password() {
-        return $('#passwd');
+        return $('#password');
     }
 
     get submit() {
-        return $('#SubmitLogin');
+        return $(`button=LET'S GO!`);
     }
 
     enterUsername(username) {
